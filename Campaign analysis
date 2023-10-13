@@ -1,4 +1,12 @@
 ##Select only the journey_name column to analyze the different campaign_name.
-SELECT 
-	journey_name
-FROM `course14.gwz_mail`
+SELECT
+  journey_name
+FROM
+  `course14.gwz_mail`
+##Select the journey_id, journey_name, and sent_nb columns to evaluate the importance of each campaign.
+SELECT
+  journey_id,
+  journey_name,
+  sent_nb
+FROM
+  `course14.gwz_mail`
