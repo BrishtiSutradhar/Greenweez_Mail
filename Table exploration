@@ -1,3 +1,7 @@
 SELECT
 	*
 FROM `course14.gwz_mail`
+### Find Primary key
+
+SELECT DISTINCT journey_id
+FROM `course14.gwz_mail`
