@@ -19,3 +19,9 @@ FROM
   `course14.gwz_mail`
 ORDER BY
   sent_nb DESC
+
+####Select the different ‘journey_name’
+SELECT
+  DISTINCT(journey_name)
+FROM
+  `course14.gwz_mail`
