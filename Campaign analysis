@@ -1,0 +1,4 @@
+##Select only the journey_name column to analyze the different campaign_name.
+SELECT 
+	journey_name
+FROM `course14.gwz_mail`
