@@ -25,3 +25,16 @@ SELECT
   DISTINCT(journey_name)
 FROM
   `course14.gwz_mail`
+##### Select journey_id, journey_name, sent_nb, opening_nb but only for the campaign with more than 10,000 openings 
+and order by opening DESC.
+SELECT
+  journey_id,
+  journey_name,
+  sent_nb,
+  opening_nb
+FROM
+  `course14.gwz_mail`
+WHERE
+  opening_nb >= 10000
+ORDER BY
+  opening_nb DESC
