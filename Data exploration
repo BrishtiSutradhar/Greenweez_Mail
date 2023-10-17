@@ -1,0 +1,36 @@
+SELECT
+  journey_id,
+  journey_name,
+  sent_nb,
+  opening_nb,
+  click_nb,
+  turnover
+FROM
+  `course14.gwz_mail`
+WHERE
+  journey_name LIKE "%nl%"
+  AND journey_name NOT LIKE "%nlbe%"
+ORDER BY
+  sent_nb DESC
+
+##Main KPIs of the mail statistics. Opening Rate= Opening number/Sent Number, Click Rate= Click Number/Sent Number.
+##CTR(Click through Rate)= click_nb/opening_nb
+
+SELECT
+  journey_id,
+  journey_name,
+  sent_nb,
+  opening_nb,
+  click_nb,
+  turnover,
+  ROUND(opening_nb/sent_nb*100,1)AS opening_rate,
+  ROUND(click_nb/sent_nb*100,2)AS click_rate,
+  ROUND(click_nb/opening_nb*100,1)AS CTR,
+  ROUND(turnover/sent_nb*1000,1)AS turnover_per_mille,
+FROM
+  `course14.gwz_mail`
+WHERE
+  journey_name LIKE "%nl%"
+  AND journey_name NOT LIKE "%nlbe%"
+ORDER BY
+  sent_nb DESC
