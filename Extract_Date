@@ -1,0 +1,20 @@
+SELECT 
+	journey_id
+	,DATE(CAST(CONCAT('20',SUBSTR(journey_name,1,2)) AS INT64),CAST(SUBSTR(journey_name,3,2) AS INT64),CAST(SUBSTR(journey_name,5,2) AS INT64)) AS date_date
+  ,journey_name 
+	,sent_nb
+	,opening_nb
+	,click_nb
+	,turnover
+  ,ROUND(opening_nb/sent_nb*100,1) AS opening_rate
+  ,ROUND(click_nb/sent_nb*100,2) AS click_rate
+  ,ROUND(click_nb/opening_nb*100,1) AS CTR
+  ,ROUND(turnover/sent_nb*1000,1) AS turnover_per_mille
+FROM `course14.gwz_mail`
+WHERE TRUE
+	AND journey_name LIKE "%_nl_%"
+  AND journey_name NOT LIKE "%nlbe%"
+  AND journey_name NOT LIKE "COPY%"
+	AND journey_name NOT LIKE "2108_nl_marketplace_1"
+ORDER BY
+	date_date
